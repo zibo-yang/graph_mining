@@ -30,3 +30,11 @@ cd src
 python3 advanced_basic_functions.py
 ```
 (which produces the figure: time_complexity_analysis2.png)
+
+Although there are plenty of examples in ./stu-master and ./network-example, the authur didn't feed them into algorithms since inappropriate
+reading setting based on previous biases of number as the only type of input data. However, it doesn't affect the correctness of our algorithms. The authur takes advantage of the generated complete graph(n-clique) which serves to validate the time-complexity plot, which shares no influence for our conclusion for the complete graph as the worst cases to find densest graph. To verify the correctness of algorithms:
+```bash
+python3 algo1.py
+python3 algo2.py
+```
+where the graphs to feed come from our class slides and are very unusual to produce, which shows the correctness of algorithms. 
