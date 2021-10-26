@@ -1,4 +1,4 @@
-This is my personal project for MPRI 2.29.2 graph mining. Our goal is to program the algorithm to find the densest subgraph in specific large graph.
+This is my personal project for MPRI 2.29.2 graph mining. My goal is to program the algorithm to find the densest subgraph in specific large graph.
 
 Sorry for the inconvenience of usage of this repository since the refinement of makefile and coding comment are restricted by lack of time. I will try my best to optimize its usage as soon as I could and update it on my github account. Please stay tuned on git and send email to zibo.yang@ip-paris.fr if there is any doubt.
 
@@ -17,12 +17,14 @@ advanced_basic_functions.py: Another advanced but complicated algorithm to find 
 
 To check first algorithm:
 ```bash
+cd src
 python3 finding.py
 ```
 (which produces the figure: time_complexity_analysis.png which clearly demonstrates exponential complexity and results in programming advanced_basic_function.py)
 
 To check advanced algorithm:
 ```bash
+cd src
 python3 advanced_basic_functions.py
 ```
 (which produces the figure: time_complexity_analysis2.png)
