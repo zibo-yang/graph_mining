@@ -1,0 +1,15 @@
+#
+# * stu A
+# * modify B
+# * stu A
+# ** must rebuild A
+#
+# The file B is generated in exec. 
+#
+
+A: [list.A]
+{
+	cat B B >A
+}
+
+list.A { echo B >list.A }

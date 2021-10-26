@@ -1,0 +1,11 @@
+# Now allowed
+
+A: -t [B] { 
+	echo "$C" >A
+}
+
+>B { 
+	echo '$[C]' 
+}
+
+>C { echo correct }

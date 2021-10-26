@@ -1,0 +1,16 @@
+# Double 't' within dynamic variable 
+
+>A: B $[-t -t C] {
+	echo "$C"
+	cat B
+}
+
+>B {
+	echo bbb
+}
+
+C: D {
+	cp D C
+}
+
+>D { echo ddd }

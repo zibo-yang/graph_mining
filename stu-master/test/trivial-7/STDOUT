@@ -1,0 +1,5 @@
+touch C
+echo BBB
+BBB
+touch A
+Build successful

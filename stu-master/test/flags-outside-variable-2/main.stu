@@ -1,0 +1,8 @@
+# Valid, and does the same as '$[-o B]'. 
+
+A:  -o $[B]    { 
+	[ -z "$B" ] || exit 1
+	echo aaa >A
+}
+
+>B { echo error }

@@ -1,0 +1,4 @@
+# This is a syntax error
+
+A: $[ < -p B] { touch A }
+B {touch B}

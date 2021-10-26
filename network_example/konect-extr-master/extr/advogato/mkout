@@ -1,0 +1,29 @@
+#! /bin/bash
+#
+# Generate the Advogato outfile.
+#
+# The weights are mapped to .6, .8 and 1.
+# The "observer" status is ignored because it is not used by Advogato's
+# own algorithm. 
+#
+# INPUT
+#	graph.dot
+#
+# OUTPUT
+#	out.advogato
+#
+
+{
+	echo '% asym posweighted'
+
+	<graph.dot sed -E -e '
+/->/!d
+s,\s*(\S+) -> (\S+) \[level="([A-Za-z]+)"];,\1	\2	\3,
+s,Apprentice$,.6,
+s,Journeyer$,.8,
+s,Master$,1,
+/Observer/d
+' |
+	../../sh/mkuniq1 
+} >out.advogato
+

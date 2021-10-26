@@ -1,0 +1,121 @@
+#! /bin/sh
+
+rmm() { echo >&2 RMM ; rm -f ? list.* data.* || exit 1 ; }
+
+#
+# (A) On error:  File is not removed because it was not changed 
+#
+
+echo >&2 '== (A) =='
+rmm
+../../sh/touch_old list.A || exit 1
+
+../../stu.test data.A 2>list.err 
+exitcode="$?"
+
+[ "$exitcode" = 1 ] || {
+	echo >&2 "*** Wrong exit code (A)"
+	echo >&2 "exitcode=$exitcode"
+	exit 1
+}
+
+[ -s list.err ] || {
+	echo >&2 '*** Stderr'
+	exit 1
+}
+
+grep -qFi "removing file" list.err 
+exitcode="$?"
+[ "$exitcode" = 1 ] || {
+	echo >&2 "*** Wrong error message (A)"
+	exit 1
+}
+
+#
+# (B) On error:  File is removed because it was changed
+#
+
+echo >&2 '== (B) =='
+rmm
+../../sh/touch_old list.B || exit 1
+
+../../stu.test data.B >list.out 2>list.err 
+exitcode="$?"
+
+[ "$exitcode" = 1 ] || {
+	echo >&2 "*** Wrong exit code (B)"
+	echo >&2 "exitcode=$exitcode"
+	exit 1
+}
+
+grep -qF "Removing file 'list.B' because command failed" list.err || {
+	echo >&2 "*** Missing error message (B)"
+	echo >&2 stderr:
+	echo >&2 ___________
+	cat >&2 list.err
+	echo >&2 ___________
+	echo >&2 stdout:
+	echo >&2 ___________
+	cat >&2 list.out
+	echo >&2 ___________
+	ls -l 
+	exit 1
+}
+
+#
+# (C) On abort:  File is not removed because it was not changed
+#
+
+echo >&2 '== (C) =='
+rmm
+../../sh/touch_old list.C || exit 1
+
+../../stu.test 2>list.err data.C &
+pid=$!
+
+sleep 1 || exit 1
+
+kill -TERM $pid || exit 1
+
+wait "$pid" 
+exitcode=$?
+
+[ -r list.err ] || {
+	echo >&2 '*** stderr'
+	exit 1
+}
+
+grep -qFi "removing file" list.err 
+[ "$?" = 1 ] || {
+	echo >&2 "*** Wrong error message (C)"
+	exit 1
+}
+
+#
+# (D) On abort:  File is removed because it was changed
+#
+
+echo >&2 '== (D) =='
+rmm
+../../sh/touch_old list.D || exit 1
+
+../../stu.test 2>list.err data.D &
+pid="$!"
+
+sleep 1 || exit 1
+
+kill -TERM "$pid" | exit 1
+
+wait "$pid"
+exitcode="$?"
+
+grep -qF "Removing partially built files" list.err || {
+	echo >&2 "*** Missing error message (D)"
+	exit 1
+}
+
+#
+# End
+#
+
+exit 0

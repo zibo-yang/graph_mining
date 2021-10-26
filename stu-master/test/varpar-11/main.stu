@@ -1,0 +1,10 @@
+# Not an error. 
+
+A: -t $[X] { 
+	echo "$X" >A
+}
+
+X { 
+	echo correct >X
+}
+

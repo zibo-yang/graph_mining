@@ -1,0 +1,6 @@
+echo 1 >B
+echo 1 >C
+echo 'Hello, @c'
+Hello, @c
+Building A
+Build successful

@@ -1,0 +1,18 @@
+# 'C' already exists and is old.  There should be an error because 'C'
+# is older than 'D'.  
+
+A: @init C { touch A }
+
+B C: D;
+
+D { 
+	# Must first create 'D', then 'B'
+	touch D B 
+}
+
+@init {
+	rm -f ?
+
+	# Create an old file 'C'
+	touch -t "$(expr "$(date +%Y)" - 2)"01010700 C 
+}

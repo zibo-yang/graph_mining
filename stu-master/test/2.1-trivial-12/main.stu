@@ -1,0 +1,5 @@
+# No error. '-t' does nothing. 
+
+A: -t [B] { touch A }
+>B { echo '@x' }
+@x;

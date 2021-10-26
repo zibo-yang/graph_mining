@@ -1,0 +1,4 @@
+A: B { cp B A }
+>B: C D { cat C D }
+C { echo ccc >C }
+D { touch D }

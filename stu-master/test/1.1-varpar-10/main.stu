@@ -1,0 +1,10 @@
+# Not an error 
+
+A: -o $[X] { 
+	[ -e X ] && exit 1
+	touch A
+}
+
+X { 
+	echo xxx >X
+}

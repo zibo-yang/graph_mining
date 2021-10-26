@@ -1,0 +1,25 @@
+#! /bin/sh
+
+set -e
+
+rm -f ?
+
+echo Hello >B 
+
+../../stu.test 
+
+echo "Hello CORRECT World" >B
+../../sh/touch_old A
+
+ls -l A B
+
+../../stu.test 
+
+grep -qF CORRECT A || {
+	echo >&2 "$0:  *** 'A' was not updated"
+	exit 1
+}
+
+rm -f ?
+
+exit 0

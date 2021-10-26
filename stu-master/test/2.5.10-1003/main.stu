@@ -1,0 +1,29 @@
+A = B;
+B = C;
+C = D;
+D = E;
+E = F;
+F = G;
+G = H;
+H = I;
+I = J;
+J = K; 
+K = L;
+L = M;
+M = N;
+N = O;
+O = P;
+P = Q;
+Q = R;
+R = S;
+S = T;
+T = U;
+U = V;
+V = W;
+W = X;
+X = Y;
+Y = Z;
+Z = x.a;
+x.a=x.b;x.b=x.c;x.c=x.d;x.d=x.e;x.e=x.f;x.f=x.g;x.g=x.h;x.h=x.i;x.i=x.j;x.j=x.k;x.k=x.l;x.l=x.m;x.m=x.n;x.n=x.o;x.o=x.p;x.p=x.q;x.q=x.r;x.r=x.s;x.s=x.t;x.t=x.u;x.u=x.v;x.v=x.w;x.w=x.x;x.x=x.y;x.y=x.z;
+
+x.z = {correct}

@@ -1,0 +1,8 @@
+
+# 'B' is a full (not 'persistent') dependency of 'A'. 
+
+A:  -p B B {
+	cp B A
+}
+
+>B { echo bbb }

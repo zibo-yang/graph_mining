@@ -1,0 +1,80 @@
+#! /usr/bin/perl -w
+#
+# Generate the coauthorship network from the DBLP XML.
+#
+# INPUT
+#	dblp.xml
+#
+# STDOUT
+#	out.dblp_coauthor
+#
+
+use strict; 
+
+use Encode; 
+use HTML::Entities;
+use Time::Local;
+
+open(IN, "<dblp.xml") or die;
+
+print "% sym positive\n";
+
+my $key  = "";
+
+my @authors = (); 
+
+my $year = "";
+my $timestamp = 0;
+
+while (<IN>)
+{
+    if (/<(article|inproceedings|proceedings|book|incollection|phdthesis|masterthesis|www) .*key=\"([^\"]*)\"/)
+    {
+        # if last paper did not end "properly" (e.g., with no new line)
+        if (@authors)
+        {
+            my $n = scalar @authors; 
+            foreach my $i (@authors)
+            {
+                foreach my $j (@authors)
+                {
+                    next if $i eq $j;
+                    print "$i $j 1 $timestamp\n"; 
+                }
+            }
+        }
+        @authors = (); 
+
+        $key= $2;
+    }
+
+    elsif (/<year>([0-9]+)<\/year>/)
+    {
+        $year = $1;
+        $timestamp = timelocal(1,1,1,1,0,$year);
+    }
+
+    elsif (/<author>(.+)<\/author>/)
+    {
+        my $author = $1;
+        $author =~ s/ /_/g;
+        $author = encode("utf-8", decode_entities($author)); 
+        push(@authors, $author); 
+    }
+
+    elsif (/<\/(article|inproceedings|proceedings|book|incollection|phdthesis|masterthesis|www)>/)
+    {
+        my $n = scalar @authors; 
+        foreach my $i (@authors)
+        {
+            foreach my $j (@authors)
+            {
+                next if $i eq $j;
+                print "$i $j 1 $timestamp\n"; 
+            }
+        }
+        @authors = ()
+    }
+}
+
+close(IN) or die;

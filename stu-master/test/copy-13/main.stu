@@ -1,0 +1,3 @@
+A = -p -p B;
+
+B { touch B }

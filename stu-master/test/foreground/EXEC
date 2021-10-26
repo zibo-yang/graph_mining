@@ -1,0 +1,18 @@
+#! /bin/sh
+#
+# Test that when a job is executed with -i, that job stays in the
+# foreground.  
+#
+
+set -e
+
+rm -f ?
+
+echo correct | ../../stu.test -i -F '>A{cat;}'
+
+grep -qF correct A || {
+	echo >&2 "*** Expected 'correct' in file 'A'"
+	exit 1
+}
+
+exit 0

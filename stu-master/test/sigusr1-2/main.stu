@@ -1,0 +1,14 @@
+# Send a SIGUSR1 immediately after Stu startup. 
+
+A:  [list.dep] 
+{ touch A }
+
+>list.dep: {
+	seq 1 99 | sed -e 's,^,list.,'
+}
+
+list.$n
+{
+	sleep 7463194
+	touch "list.$n"
+}

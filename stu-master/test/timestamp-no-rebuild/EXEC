@@ -1,0 +1,52 @@
+#! /bin/sh
+
+rm -f ? list.* || exit 1
+
+#
+# stu A:  B and A are built.
+#
+
+../../stu.test A 
+exitstatus=$?
+
+if [ "$exitstatus" != 0 ] ; then
+	echo >&2 "*** (A1) Expected exit status 0, got $exitstatus"
+	exit 1
+fi
+
+if [ ! -r A -o ! -r B ] ; then
+	echo >&2 "*** (A2) Did not build A and B"
+	exit 1
+fi
+
+#
+# rm B
+#
+
+rm B || exit 1
+
+#
+# stu A:  B is rebuilt, but not A
+#
+
+../../stu.test A >list.out 2>list.err
+exitstatus=$?
+
+if [ "$exitstatus" != 0 ] ; then
+	echo >&2 "*** (B1) Expected exit status 0, got $exitstatus"
+	exit 1
+fi
+
+[ -r B ] || {
+	echo >&2 "*** (B2) Expected 'B' to be rebuilt"
+	exit 1
+}
+
+grep -q -E '^ls -l B >A$' list.out || {
+	echo >&2 "*** (B3) Expected 'A' to be rebuilt"
+	exit 1
+}
+
+rm -f ? list.* || exit 1 
+
+exit 0

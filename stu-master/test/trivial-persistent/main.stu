@@ -1,0 +1,8 @@
+
+# is possible
+
+>A: $[-t -p B] {
+	echo "$B"
+}
+
+>B {echo CORRECT}

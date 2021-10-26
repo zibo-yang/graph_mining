@@ -1,0 +1,9 @@
+
+# Error:  '-o' and '-p' don't mix.  Here, '-o' is transitive through the
+# phony @x.  
+
+A:  -o @x { touch A }
+
+@x:  -p B;
+
+B { touch B }

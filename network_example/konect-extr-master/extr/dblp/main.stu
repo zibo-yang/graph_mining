@@ -1,0 +1,50 @@
+#
+# The DBLP dataset of scientific publications.
+#
+# out.dblp-cite:  citations between publications
+# out.dblp-author:  authorship links between authors and publications
+# out.dblp_coauthor:  co-authorship links between authors 
+#
+
+% version 2.4
+
+@all:  out.dblp-cite out.dblp-author out.dblp_coauthor ent.author; 
+
+@clean:
+{
+	rm -f out.* ent.* dblp.xml* dblp.dat
+}
+
+dblp.xml:
+{
+	wget http://dblp.uni-trier.de/xml/dblp.xml.gz -O dblp.xml.gz
+	gunzip dblp.xml.gz
+	touch dblp.xml
+}
+
+>dblp.dat:  <dblp.xml mkdblp
+{
+	./mkdblp 
+}
+
+>out.dblp-cite:  <dblp.dat
+# Note:  we use rmmulti due to erroneous data in the DBLP dataset, in
+# which certain (paperA->paperB) citation edges are included multiple
+# times, in all likelihood wrongly.  See 'DUPLICATES'. 
+{
+	echo '% asym unweighted'
+	sed -E -e 's,^cite (\S+) (\S+) (\S+),\1 \2 1 \3,;t;d' | ../../sh/mkuniq1 | ../../sh/rmmulti
+}
+
+>out.dblp-author:  <dblp.dat 
+{
+	sed -re '/^author /!d;s,^author ,,;s,(.* .*) ,\1_,;s,(.* .*) ,\1_,' | 
+	../../sh/mkrel --enforce-edgeweights 'bip' 'unweighted' 
+}
+
+>out.dblp_coauthor:  dblp.xml mkco 
+{
+	./mkco | ../../sh/mkuniq1 ent.author 
+}
+
+ent.author:  out.dblp_coauthor; 

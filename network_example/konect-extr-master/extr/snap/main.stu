@@ -1,0 +1,275 @@
+#
+# Large networks from the Stanford Network Analysis Project (SNAP) by Jure
+# Leskovec and colleagues. 
+#
+# http://snap.stanford.edu/
+#
+
+#
+# This project uses Stu instead of Make.  Get it at
+#
+# https://github.com/kunegis/stu
+#
+
+% version 2.5
+
+@all: 
+	@all.datasets @all.datasets-citation 
+	@all.egodatasets @all.symdatasets
+; 
+
+# For these datasets, also extract the temporal co-citation graph. 
+DATASETS_CITATION = { cit-HepPh cit-HepTh }
+
+DATASETS_OTHER;
+
+>DATASETS:  DATASETS_CITATION DATASETS_OTHER
+{
+	cat DATASETS_CITATION DATASETS_OTHER
+}
+
+>ALLDATASETS:  DATASETS EGODATASETS SYMDATASETS
+{
+	cat DATASETS
+	for network in $(cat EGODATASETS) ; do
+		echo ego-"$network"
+	done
+	cat SYMDATASETS
+}
+
+#
+# Disabled because they apparently are not available anymore:
+#
+#   ca-AstroPh 
+#
+# There code is still in this Stu script, so they can just be re-added to
+# DATASETS if necessary.  Maybe their source was just moved. 
+#
+
+EGODATASETS = { twitter facebook gplus }
+SYMDATASETS = { 
+	loc-gowalla_edges loc-brightkite_edges flickrEdges roadNet-CA roadNet-TX roadNet-PA 
+} 
+
+@all.datasets:  meta.[DATASETS] out/out.[DATASETS]; 
+
+@all.symdatasets:  meta.[SYMDATASETS] out/out.[SYMDATASETS]; 
+
+@all.datasets-citation:  meta.ca-[DATASETS_CITATION] out/out.ca-[DATASETS_CITATION]; 
+
+@all.egodatasets:  meta.ego-[EGODATASETS] out/out.ego-[EGODATASETS]; 
+
+out/out.$name:  out/$name.txt SYMDATASETS mk 
+{
+	if grep -qE '(^|[[:space:]])'"$name"'($|[[:space:]])' SYMDATASETS ; then
+
+		# This is a SYMDATASETS dataset
+		sed -e '/^#/d' out/"$name".txt | 
+		tr -s ' ' ' ' | 
+		../../sh/mkrel "sym" "unweighted" >out/out."$name"
+
+	else
+ 		./mk "$name"
+	fi
+}
+
+>out/out.soc-sign-bitcoin$name:  <out/soc-sign-bitcoin$name.csv
+{
+	echo '% asym signed'
+	tr ',' '	' |
+	 ../../sh/mkuniq1
+}
+
+work/ego-$name:  work/$name.tar.gz
+{
+	tar xf work/"$name".tar.gz -C work -m
+	mv work/"$name" work/ego-"$name"
+}
+
+work/$name.tar.gz: -p work
+{
+	wget --no-use-server-timestamps -O work/"$name".tar.gz http://snap.stanford.edu/data/"$name".tar.gz 
+}
+
+out: {
+	mkdir -p out 
+}
+
+work: {
+	mkdir -p work 
+}
+
+out/com-livejournal.txt:  -p out
+{
+	wget --no-use-server-timestamps http://snap.stanford.edu/data/bigdata/communities/com-lj.all.cmty.txt.gz \
+		-O out/com-livejournal.txt.gz
+	cd out 
+	gunzip -f com-livejournal.txt.gz 
+	touch com-livejournal.txt
+	fromdos com-livejournal.txt
+}
+
+out/com-$name.txt:  -p out
+{
+	wget --no-use-server-timestamps http://snap.stanford.edu/data/bigdata/communities/com-"$name".ungraph.txt.gz \
+		-O out/com-"$name".ungraph.txt.gz
+	cd out
+	gunzip -f com-"$name".ungraph.txt.gz
+	touch com-"$name".ungraph.txt
+	mv com-"$name".ungraph.txt com-"$name".txt
+}
+
+out/$name.txt:  -p out
+{
+	wget --no-use-server-timestamps http://snap.stanford.edu/data/"$name".txt.gz -O out/"$name".txt.gz
+	cd out
+	gunzip -f "$name".txt.gz 
+	touch -- "$name".txt
+	fromdos "$name".txt
+}
+
+out/soc-sign-bitcoin$name.csv:  -p out
+{
+	wget --no-use-server-timestamps http://snap.stanford.edu/data/soc-sign-bitcoin"$name".csv.gz -O out/soc-sign-bitcoin"$name".csv.gz
+	cd out
+	gunzip -f soc-sign-bitcoin"$name".csv.gz 
+	touch -- soc-sign-bitcoin"$name".csv
+	fromdos soc-sign-bitcoin"$name".csv
+}
+
+# Special cocitation datasets derived from citation (cit-*) datasets
+# by bipartite projection. 
+>out/out.ca-$name:  
+	mkcit 
+	out/$name.txt out/$name-dates.txt 
+{
+	./mkcit "$name" | 
+	../../sh/mkrel 'sym' 'positive' 
+}
+
+out/tmp.elec:  mkelec out/wikiElec.ElecBs3.txt
+{
+	./mkelec
+}
+
+>out/out.elec:  <out/tmp.elec
+{
+	../../sh/mkrel --enforce-edgeweights 'asym' 'signed' 
+}
+
+>out/out.ego-$name:  work/ego-$name -p out
+{
+	{ 
+		find work/ego-"$name"/ -name '*.circles' | 
+		./mkcircle
+		find work/ego-"$name"/ -name '*.edges' | 
+		./mkego
+	} | 
+	sort -u | 
+	./mk2 "$name" 
+}
+
+@clean: {
+	rm -Rf out/ work/
+}
+
+@deploy:   ALLDATASETS out/out.[ALLDATASETS] meta.[ALLDATASETS] -p konect
+{
+	for network in $(cat ALLDATASETS) ; do
+		rsync -vtrl meta."$network" out/out."$network" konect/dat/snap/
+	done
+}
+
+# Symlink to the konect/ directory
+konect;
+
+#
+# amazon
+#
+
+>meta.amazon$DATE:  <template.meta.amazon
+{
+	sed -E -e 's,\$\{DATE\},'"$DATE"',g'
+}
+
+#
+# Gnutella
+#
+
+>meta.p2p-Gnutella$NAME:  <template.meta.p2p-Gnutella
+{
+	sed -E -e 's,\$\{NAME\},'"$NAME"',g'
+}
+
+#
+# StackExchange
+#
+
+>meta.sx-$name:  <template.meta.sx
+{
+	code=$(echo "$name" | sed -E -e 's,^(..).*$,\1,')
+	name_uc=$(echo "$name" | sed -E -e 's,^(.).*$,\1,' | tr a-z A-Z)$(echo "$name" | sed -E -e 's,^.(.*)$,\1,')
+
+	if [ "$name" = mathoverflow  ] ; then name_uc=MathOverflow     ; fi
+	if [ "$name" = askubuntu     ] ; then name_uc='Ask Ubuntu'     ; fi
+	if [ "$name" = stackoverflow ] ; then name_uc='Stack Overflow' ; fi
+	if [ "$name" = superuser     ] ; then name_uc='Super User'     ; fi
+
+	sed -E -e 's,\$\{NAME\},'"$name_uc"',g;s,\$\{CODE\},'"$code"',g'
+}
+
+#
+# WikiSpeedia
+#
+
+>out/out.wikispeedia:  out/wikispeedia_paths-and-graph mkwikispeedia 
+{
+	echo '% asym positive'
+	./mkwikispeedia
+}
+
+out/wikispeedia_paths-and-graph:  out/wikispeedia_paths-and-graph.tar.gz
+{
+	cd out
+	rm -Rf wikispeedia_paths-and-graph
+	tar xfvvz wikispeedia_paths-and-graph.tar.gz
+	touch -c wikispeedia_paths-and-graph
+}
+
+out/wikispeedia_paths-and-graph.tar.gz
+{
+	wget http://snap.stanford.edu/data/wikispeedia/wikispeedia_paths-and-graph.tar.gz -O out/wikispeedia_paths-and-graph.tar.gz
+	touch -c out/wikispeedia_paths-and-graph.tar.gz
+}
+
+#
+# Higgs
+#
+
+>out/out.higgs-twitter-social:
+	<out/higgs-social_network.edgelist
+{
+	echo '% asym unweighted'
+	../../sh/mkuniq1
+}
+
+out/higgs-social_network.edgelist.gz
+{
+	wget http://snap.stanford.edu/data/higgs-social_network.edgelist.gz -O out/higgs-social_network.edgelist.gz
+	touch -c out/higgs-social_network.edgelist.gz
+}
+
+out/higgs-social_network.edgelist:  out/higgs-social_network.edgelist.gz
+{
+	gunzip -k out/higgs-social_network.edgelist.gz
+	touch -c out/higgs-social_network.edgelist
+}
+
+#
+# sx-*
+#
+
+>out/out.sx-$name:  <out/sx-$name.txt   mksx
+{
+	./mksx
+}

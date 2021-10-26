@@ -1,0 +1,53 @@
+#! /bin/sh
+
+# $1:  the character to insert
+# $2:  the error output
+test_one()
+{
+	char="$1"
+	output="$2"
+
+	echo "CASE: ($char|$output)"
+
+	rm -f ? list.* main.stu
+
+	echo "A: list.x { touch A } list.\${xxx${char}yyy\} { touch \"list.\${xxx${char}yyy\}\" }" >main.stu
+
+	../../stu.test >list.out 2>list.err
+	exitcode="$?"
+
+	[ "$exitcode" = 2 ] || {
+		echo >&2 "*** Exit code is not 2"
+		exit 1
+	}
+
+	[ -r list.out ] && [ ! -s list.out ] || {
+		echo >&2 "*** Output"
+		exit 1
+	}
+
+	echo stderr:
+	echo _________
+	cat list.err
+	echo _________
+
+	grep -qF 'character '\'"$output"\'' must not appear' list.err || {
+		echo >&2 "*** Error output"
+		exit 1
+	}
+}
+
+test_one ' ' " "
+test_one '!' "!" 
+test_one "$(printf '\037')" '\037' 
+test_one "$(printf '\001')" '\001'
+test_one '[' '['
+test_one \\ \\\\ 
+test_one ']' ']'
+test_one '~' '~'
+test_one "$(printf '\177')" '\177'
+test_one é '\303'  
+
+rm -f ? list.* main.stu
+
+exit 0

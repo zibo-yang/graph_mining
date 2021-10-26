@@ -1,0 +1,7 @@
+#
+# Invalid escape sequence in double quoted string. 
+#
+
+"sjdhjsdh\xlskdjksjd": B {
+}
+

@@ -1,0 +1,10 @@
+category: Social
+code: YT
+name: YouTube
+description: User–user friendship
+url: http://socialnetworks.mpi-sws.org/data-wosn2008.html
+cite: konect:mislove2 
+extr: wosn
+long-description: This is the social network of YouTube users and their friendship connections.
+entity-names: user
+relationship-names: friendship 

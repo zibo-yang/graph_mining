@@ -1,0 +1,7 @@
+# The command is not shown. 
+
+A {    
+	rm -f A
+	echo Hello >A
+	echo World >>A
+}

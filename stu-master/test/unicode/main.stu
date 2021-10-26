@@ -1,0 +1,14 @@
+
+#
+# Test unicode stuff
+#
+
+A:  jérôme.data {
+    cp jérôme.data A
+}
+
+jérôme.data : list.世界  {
+       cat   list.世界  >jérôme.data
+}
+
+

@@ -1,0 +1,9 @@
+# Recursive Stu fails by default. 
+
+
+A: {
+	../../stu.test B
+	touch A
+}
+
+B: { touch B }

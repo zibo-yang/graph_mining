@@ -1,0 +1,4 @@
+# No error.  '-t' does nothing here. 
+
+A: -t (@x) { touch A }
+@x;

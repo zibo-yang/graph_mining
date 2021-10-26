@@ -1,0 +1,11 @@
+#! /bin/sh
+
+set -e
+
+rm -f ?
+
+../../stu.test -F 'A=B;B={Hello}'
+
+../../sh/tty ../../stu.test -F 'A=B;B={Hello}' >list.all
+
+diff list.all stdall

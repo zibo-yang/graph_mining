@@ -1,0 +1,16 @@
+# Support -t within $[...]
+
+>A: B $[-t C] {
+	echo "$C"
+	cat B
+}
+
+>B {
+	echo bbb
+}
+
+C: D {
+	cp D C
+}
+
+>D { echo ddd }

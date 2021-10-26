@@ -1,0 +1,10 @@
+A: -o [B] { 
+	cp B A
+}
+
+>B { echo C }
+
+C {
+	# Not executed
+	exit 1
+}

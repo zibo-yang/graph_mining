@@ -1,0 +1,7 @@
+# Valid 
+
+>A:  -p $[B]    { 
+	echo $B
+}
+
+>B { echo correct }

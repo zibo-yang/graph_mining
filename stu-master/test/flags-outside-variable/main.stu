@@ -1,0 +1,7 @@
+# Valid, and does the same as '$[-p B]'. 
+
+A:  -p $[B]    { 
+	echo "$B" >A
+}
+
+>B { echo correct }

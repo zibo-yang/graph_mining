@@ -1,0 +1,12 @@
+#
+# 'C' must not be built, because it is an optional dependency.  
+#
+
+A: [-o C] {
+	[ -e C ] && exit 1
+	touch A
+}  
+
+>C { echo E } 
+
+E { touch E }

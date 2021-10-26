@@ -1,0 +1,10 @@
+
+# Make sure the error message point to 'B' and not to the '-p' before it.  
+
+A: -p B {
+	touch A
+}
+
+B: {
+	exit 1
+}

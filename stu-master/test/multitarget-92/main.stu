@@ -1,0 +1,14 @@
+# 'C' must *not* be deleted after the command fails, because it existed
+# before. 
+
+A : @init B { touch A }
+
+B C { 
+	echo tmp >B
+	exit 1
+}
+
+@init {
+	touch -t "$(expr $(date +%Y) - 2)"01010700 C 
+	echo INITIALIZE
+}

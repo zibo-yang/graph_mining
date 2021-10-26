@@ -1,0 +1,14 @@
+#
+# Test a variable dependency.
+#
+
+@all:  A; 
+
+V: { echo d e f CORRECT x y z >V }
+
+A: 
+	$[V]
+{
+	echo "V='$V'"
+	echo $V >A
+}

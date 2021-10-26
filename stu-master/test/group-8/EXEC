@@ -1,0 +1,9 @@
+#! /bin/sh
+
+set -e
+rm -f ?
+../../stu.test A 
+[ -e A ] 
+grep -qF CORRECT A
+touch B
+FAIL=1 ../../stu.test A | grep -qF 'Targets are up to date'

@@ -1,0 +1,7 @@
+#
+# The trace is on "echo". 
+#
+
+A: {
+	exit 1
+}

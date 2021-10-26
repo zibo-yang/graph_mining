@@ -1,0 +1,5 @@
+# Error 
+
+A:  -o [B] { touch A }   
+
+>B { echo '-p C' } 

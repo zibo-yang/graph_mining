@@ -1,0 +1,18 @@
+#! /bin/sh
+
+export STU_STATUS=1
+
+../../stu.test 2>list.err >list.out
+exitcode="$?"
+
+[ "$exitcode" = 4 ] || {
+	echo >&2 '*** Exit code'
+	exit 1
+}
+
+grep -qF '../../stu.test: *** Refusing to run recursive Stu; unset $STU_STATUS to circumvent' list.err || {
+	echo >&2 '*** Error message'
+	exit 1
+}
+
+exit 0

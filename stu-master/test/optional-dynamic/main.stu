@@ -1,0 +1,4 @@
+# Syntactically allowed 
+
+A: -o [B] { touch A }
+B {touch B}

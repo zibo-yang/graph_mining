@@ -1,0 +1,10 @@
+*.log
+petster-data
+dat-petster
+tex-petster
+konect-analysis
+konect-toolbox
+plot-petster
+FILES
+geocache
+octave-workspace

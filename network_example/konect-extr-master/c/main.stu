@@ -1,0 +1,31 @@
+#
+# C++ code that is faster that the Perl scripts.  While this is C++
+# code, we mostly use the C standard library for input and output. 
+#
+
+% version 2.5
+
+@all: (d n).(mkuniq parse_adj);
+
+$x.$name:  $name.cc -t CXXFLAGS.$x $[-t CXXFLAGS]
+{
+	c++ $CXXFLAGS $(cat "CXXFLAGS.$x") $name.cc -o $x.$name
+}
+
+$name.cc;
+
+CXXFLAGS = { -std=c++11 -D_FILE_OFFSET_BITS=64 }
+
+CXXFLAGS.d = 
+{
+	-ggdb 
+	-Wall -Wextra -Wunused -pedantic 
+	-Wundef -Wwrite-strings -Wzero-as-null-pointer-constant -Wshadow 
+	-Werror               
+	-fno-gnu-keywords -Wc++11-compat
+}
+
+CXXFLAGS.n = 
+{
+	-O3 -DNDEBUG -s
+}

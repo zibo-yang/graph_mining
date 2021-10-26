@@ -1,0 +1,14 @@
+% version 2.1
+
+@all:  out.contact meta.contact;
+
+>out.contact:   <contacts.Exp3.dat mkdat
+{
+	./mkdat 
+}
+
+@clean
+{
+	rm -rf *~ out.*
+}
+

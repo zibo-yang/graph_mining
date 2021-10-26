@@ -1,0 +1,14 @@
+#
+# Correct line numbers after a single quote that contains a newline.
+#
+
+A:  list.'aaa
+
+bbb' X
+{
+	touch A
+}
+
+list.'aaa
+
+bbb' = {abc}

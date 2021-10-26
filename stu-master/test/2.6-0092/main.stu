@@ -1,0 +1,11 @@
+# '$dir/8w$B' matches '/8w[...]' with $dir set to '/' and $B to [...].
+# This is special canonicalization rule (b). 
+
+A:  /8w792387r9287v3r23vb8r239vbr  {
+	echo ERROR
+}
+
+$dir/8w$B {
+	echo CORRECT
+	exit 1
+}

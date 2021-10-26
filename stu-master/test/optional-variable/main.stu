@@ -1,0 +1,7 @@
+# Error: '-o' is not allowed in dynamic variable dependencies
+
+A:  $[-o B] {
+	touch A
+}
+
+B { touch B }

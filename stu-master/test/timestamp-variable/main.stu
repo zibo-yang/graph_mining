@@ -1,0 +1,9 @@
+
+# The file B counts as a persistent dependency 
+
+>A:	$[-p B]     
+{
+	echo $B
+}
+
+>B { echo CORRECT }

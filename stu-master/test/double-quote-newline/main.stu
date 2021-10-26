@@ -1,0 +1,12 @@
+# Newline in double quotes
+
+A: list."B
+C"
+{
+	cp list."B
+C" A
+}
+
+list.'B
+C' = {correct}
+

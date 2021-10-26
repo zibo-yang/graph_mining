@@ -1,0 +1,8 @@
+A: @files
+{
+	cat BBB >A
+}
+
+@files:  BBB;
+
+
