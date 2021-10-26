@@ -1,4 +1,0 @@
-# Error:  copy rule with two targets
-
-A B = C;
-C { touch C }

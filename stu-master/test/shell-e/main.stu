@@ -1,7 +1,0 @@
-
-# Test that Stu invokes the shell with the -e option.  This must fail
-
-A: {
-	false
-	touch A
-}

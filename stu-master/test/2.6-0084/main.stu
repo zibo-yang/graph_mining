@@ -1,6 +1,0 @@
-A:   list.A./ { cp list.A./B A ; }
-
-$x./ { 
-	mkdir -p -- "$x".
-	echo CORRECT >"$x"./B
-}

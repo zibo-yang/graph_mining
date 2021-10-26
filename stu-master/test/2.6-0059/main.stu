@@ -1,3 +1,0 @@
-# Error:  Duplicate target
-A:  list.B { touch A; }
-list.B ./list.B { touch list.B; }

@@ -1,8 +1,0 @@
-
-# Execute with 'C' already existing 
-
-A: [-o preexisting] {
-	touch A
-}	
-
-preexisting { touch preexisting } 

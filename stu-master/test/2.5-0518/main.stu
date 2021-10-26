@@ -1,3 +1,0 @@
-A:  (list).Y    { cp list.Y A ; }
-list.Y = {yyy}
-

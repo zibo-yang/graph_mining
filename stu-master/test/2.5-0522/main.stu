@@ -1,4 +1,0 @@
-A:  list.[B] { cat list.C list.D >A ; }
-B = {C D}
-list.C = {ccc}
-list.D = {ddd}

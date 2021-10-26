@@ -1,8 +1,0 @@
-# An unquoted double quote in a single quote. 
-
-A: list.'abc"def'
-{
-	cp list.'abc"def' A
-}
-
-list."abc\"def" = {correct}

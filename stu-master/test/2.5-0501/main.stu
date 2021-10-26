@@ -1,6 +1,0 @@
-A:  (list.)(b)(c) 
-{
-	cp list.bc A
-}
-
-list.bc = {correct}

@@ -1,5 +1,0 @@
-#
-# The error message shows the non-canonicalized name, because the first target is used by default.   
-#
-/// : X { exit 1 ; }
-X { touch X ; }

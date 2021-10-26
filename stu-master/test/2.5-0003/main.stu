@@ -1,5 +1,0 @@
-A:  -o B 
-{
-	[ -e B ] && exit 1
-	echo aaa >A
-}

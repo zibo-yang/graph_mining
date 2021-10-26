@@ -1,4 +1,0 @@
-# '..' is not simplified, and this does not succeed. 
-A:  jshdjshd////../B { cp B A ; }
-B = {CORRECT}
-

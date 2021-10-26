@@ -1,8 +1,0 @@
-# Nice error message
-
-A: B { cp B A }
-
-B: C;
-
-# 'B' is not built by this rule. 
-C { touch C }

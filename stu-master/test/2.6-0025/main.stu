@@ -1,3 +1,0 @@
-A: ./list.X { cp list.X A ; }
-list.X = {CORRECT}
-

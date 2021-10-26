@@ -1,4 +1,0 @@
-
-# include name cannot be parametrized.
-
-%include aaa${NAME}bbb

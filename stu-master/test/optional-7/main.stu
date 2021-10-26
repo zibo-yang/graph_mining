@@ -1,7 +1,0 @@
-# Don't build dependencies of 'B'
-
-A: -o B { touch A }
-
-B: C { touch B }
-
-C { exit 1 }

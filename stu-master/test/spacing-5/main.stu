@@ -1,4 +1,0 @@
-# Error message is 'missing command', not 'missing whitespace after
-# closing parenthesis'. 
-
-A: (B)

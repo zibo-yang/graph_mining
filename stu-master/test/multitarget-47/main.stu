@@ -1,8 +1,0 @@
->A: X B { cat X B }
-
-X {
-	printf corr >X
-	echo   ect  >B
-}
-
-@x B;

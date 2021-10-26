@@ -1,4 +1,0 @@
-# '/..' does not get simplified.  Since 'nonexistingfile' does not
-# exist, there is an error message, which must include the name '/..'. 
-A:  /.. { touch A; }
-/.. : nonexistingfile; 

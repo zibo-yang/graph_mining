@@ -1,9 +1,0 @@
-A:  [X]Y
-{
-	cat list.Y A.Y >A
-}
-
-X = { list. A. }
-
-list.Y = {lll}
-A.Y    = {AAA}

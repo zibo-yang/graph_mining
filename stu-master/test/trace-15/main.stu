@@ -1,4 +1,0 @@
-
-A: [B] { touch A }
-B:     { echo [C] >B }
-C:     { echo X >C }

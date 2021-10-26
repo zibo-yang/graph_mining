@@ -1,4 +1,0 @@
->D: echo ddd
-cp D C
->A: cat C B
-Build successful

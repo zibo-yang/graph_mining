@@ -1,5 +1,0 @@
-
-# Error 
-
-A: <$[V] { touch A }
->V { echo ERROR }

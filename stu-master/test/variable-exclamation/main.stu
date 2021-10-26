@@ -1,7 +1,0 @@
-# Make '-p $[X]' is a synonym of '$[-p X]'. 
-
-A: -p [B] { echo "$X" >A }  
-
->B { echo '$[X]' }  
-
->X { echo correct }

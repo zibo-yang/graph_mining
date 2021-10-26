@@ -1,4 +1,0 @@
-X { exit 1 }
-P { exit 1 }
-Q { exit 1 }
-R { exit 1 }

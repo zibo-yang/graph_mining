@@ -1,1 +1,0 @@
- -F 'A: B { cp B A}' -f a.stu

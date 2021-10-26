@@ -1,3 +1,0 @@
-#! /bin/sh
-
-find . -name 'meta.*' | xargs grep -l "^\s*tags\s*:.*[ ,]*$1" | grep -v '.svn'

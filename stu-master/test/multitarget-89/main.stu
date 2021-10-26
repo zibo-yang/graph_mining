@@ -1,3 +1,0 @@
-# Error: parameter $y does not appear in the targets
-
-@x.$a.$b A.$b.$a:   list.$a.$b.$y { touch "A.$b.$a" }

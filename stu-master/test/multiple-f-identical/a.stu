@@ -1,3 +1,0 @@
-# Using -f twice on the same file is the same at using it once. 
-
-A { touch A }

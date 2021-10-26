@@ -1,5 +1,0 @@
-
-# Cannot mix '-o' and '-p'.  This must give a logical error. 
-
-A: -p (-o B) { touch A }
-B { touch B }

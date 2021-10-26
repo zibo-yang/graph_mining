@@ -1,3 +1,0 @@
-# Error:  multiple input redirections
-
-A B : <C <D { touch A B }

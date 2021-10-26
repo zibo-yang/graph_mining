@@ -1,4 +1,0 @@
-# A\[newline]'' :  Not an error; same as A
-
->A\
-'' { echo CORRECT ; }

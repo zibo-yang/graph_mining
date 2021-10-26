@@ -1,9 +1,0 @@
-
-A:  -p @x {
-    [ "$FAIL" ] && exit 1
-    cp B A
-}
-
-@x: B;
-
->B { echo CORRECT }

@@ -1,3 +1,0 @@
-A:  list.B/./X { cp list.B/./X A ; }
-list.B/X { mkdir list.B ; touch list.B/X ; }
-

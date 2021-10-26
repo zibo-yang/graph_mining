@@ -1,3 +1,0 @@
-A:  $[V] $[V = Y] { echo "$V" >A ; }
-V = {correct}
-Y = {correct}

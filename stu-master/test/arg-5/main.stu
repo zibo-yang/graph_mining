@@ -1,3 +1,0 @@
-'list.A?B':  A { cp A 'list.A?B' }
-
-A { touch A }

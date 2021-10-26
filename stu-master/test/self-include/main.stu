@@ -1,4 +1,0 @@
-
-# A file cannot %include itself. 
-
-%include main.stu

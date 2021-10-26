@@ -1,4 +1,0 @@
-
-# The error message should use quotes around the phony name. 
-
-A:  @'aaa bbb' { touch A }

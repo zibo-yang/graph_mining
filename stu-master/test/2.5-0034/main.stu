@@ -1,3 +1,0 @@
-A:  -o @x   @x  { cp C A ; }
-@x:  C;
-C { echo correct >C ; }

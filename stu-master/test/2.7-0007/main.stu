@@ -1,3 +1,0 @@
-# Backslash-newline as last in file
->A { echo CORRECT ; }
-\

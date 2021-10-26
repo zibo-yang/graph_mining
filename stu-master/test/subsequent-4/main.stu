@@ -1,8 +1,0 @@
-
-# The first 'B' is not built, but the second is. 
-
-A:  -o B -p B {
-	cp B A
-}
-
->B { echo CORRECT }

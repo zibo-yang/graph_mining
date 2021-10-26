@@ -1,4 +1,0 @@
-# Error message about '-o F'
-A: list.[X] { touch A ; }
-X = {  -o F  -o G  }
-list.$x = {incorrect}

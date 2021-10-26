@@ -1,8 +1,0 @@
-# Error because $ is followed by space.  This was an old, erroneous,
-# syntax for variable dependencies. 
-
-A:  $ <V> {
-	touch A
-}
-
-V { touch V }

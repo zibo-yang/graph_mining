@@ -1,5 +1,0 @@
-# Explanation:  which characters have special meaning, etc. 
-
-A { touch A ; }
-list.* { touch list. ; }
-

@@ -1,9 +1,0 @@
-
-A: B B {
-   cat B B >A
-}
-
-B: {
-   echo Bla >B
-}
-

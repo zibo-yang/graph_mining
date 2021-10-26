@@ -1,8 +1,0 @@
-#! /bin/sh
-
-echo ../../stu.test
-../../stu.test >list.output || exit 1
-
-fgrep HELLO list.output || exit 1
-
-exit 0

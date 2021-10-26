@@ -1,5 +1,0 @@
-A: list.(xx yy zz) {
-	cat list.xx list.yy list.zz >A
-}
-
->list.$aa { echo "$aa" ; }

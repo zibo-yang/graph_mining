@@ -1,9 +1,0 @@
-# 'B' must be built.
-
-A:  [-o B] [B] 
-{ 
-	[ -e B ] || exit 1
-	touch A 
-}
-
-B { touch B }

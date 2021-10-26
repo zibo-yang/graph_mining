@@ -1,6 +1,0 @@
-# Correct place on the command ('{', not 't'). 
-
->
-{
-	touch A
-}

@@ -1,4 +1,0 @@
-# Not simplified.  Since the 'nonexistingfile' does not exist, the file
-# is not found.  
-A:  nonexistingfile/.. { touch A ; }
-

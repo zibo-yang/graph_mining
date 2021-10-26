@@ -1,6 +1,0 @@
-# Automatically append a name with a parameter
-
-A:  list.x { cp list.x A }
-list.$name = X/;
->X/list.$name:  -p X { echo correct }
-X { mkdir -p X }

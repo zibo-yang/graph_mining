@@ -1,2 +1,0 @@
-main.stu:4:6: cyclic dependency: @A depends on @B
-main.stu:6:6: @B depends on @A

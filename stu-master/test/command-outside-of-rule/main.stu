@@ -1,8 +1,0 @@
-
-#
-# Syntax error:  lone command. 
-#
-
-{
-	echo this is not executed
-}

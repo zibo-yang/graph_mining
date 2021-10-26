@@ -1,6 +1,0 @@
-# Error 
-
-A: [@x] { cp D A }
-B @x: C { echo Building B ; touch B ; }
-C = {D}
-D = {correct}

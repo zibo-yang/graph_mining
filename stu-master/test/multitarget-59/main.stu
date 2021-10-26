@@ -1,7 +1,0 @@
-# Check that the error message is correct
-
-A: [B] { cp D A }
-X B: C { cp C B ; echo xxx >X ; }
-C = {D}
-D = E;
-E { exit 1 }

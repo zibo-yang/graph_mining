@@ -1,8 +1,0 @@
-
-# is possible
-
->A: $[-p -t B] {
-	echo "$B"
-}
-
->B {echo CORRECT}

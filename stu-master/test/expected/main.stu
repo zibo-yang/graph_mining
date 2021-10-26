@@ -1,3 +1,0 @@
-# Error:  'A' is not built by command. 
-
-B A { touch B }

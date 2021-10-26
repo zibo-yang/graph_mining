@@ -1,8 +1,0 @@
-
-A: [-p B] {
-	cp C A
-}
-
->B { echo C }
-
->C { echo CORRECT }

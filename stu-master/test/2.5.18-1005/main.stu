@@ -1,9 +1,0 @@
-#
-# Shell syntax corner case 
-#
-
->A: B {echo $({ echo hello } ; })}
-
-B { touch B ; }
-
-

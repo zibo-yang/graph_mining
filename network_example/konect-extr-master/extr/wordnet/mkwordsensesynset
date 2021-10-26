@@ -1,7 +1,0 @@
-#! /bin/sed -Ef 
-
-/^\s*[^ ]+\s+<http:\/\/.*\/schema\/containsWordSense>\s+[^ ]+\s+.\s*$/!d
-s,^\s*([^ ]+)\s+<http:\/\/.*\/schema\/containsWordSense>\s+([^ ]+)\s+.\s*$,\2 \1,
-
-
-

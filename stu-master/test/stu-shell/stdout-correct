@@ -1,7 +1,0 @@
-echo ccc >C
-MYSHELL
-cp C B
-MYSHELL
-cp B A
-MYSHELL
-Build successful

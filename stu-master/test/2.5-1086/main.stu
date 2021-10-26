@@ -1,9 +1,0 @@
-# No error here:  because () is the empty list, neither 'X' nor [X] is
-# even built.  
-
-A:  list.().[X] 
-{
-	touch A ; 
-}
-
-$x { exit 1 ; }

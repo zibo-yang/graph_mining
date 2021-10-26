@@ -1,8 +1,0 @@
-
-# cycle with phonies
-
-@all:  A;
-
-A:  @all {
-    echo aaa >A
-}

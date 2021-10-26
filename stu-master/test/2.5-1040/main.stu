@@ -1,8 +1,0 @@
-A:  list.[C]D
-{
-	cp list.1.D A
-}
-
-C = { 1. }
-
-list.1.D = {correct}

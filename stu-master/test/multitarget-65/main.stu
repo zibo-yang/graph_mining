@@ -1,7 +1,0 @@
-# [@x] is not equivalent to [C], because the rule has another file
-# target AND a command.  
-
-A: [@x] { cp D A }
-@x B: C { cp C B }
-C = {D}
-D = {correct}

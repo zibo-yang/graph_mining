@@ -1,3 +1,0 @@
-# No error ('-t' is transitive and applies to nothing) 
-A: -t @x { touch A }
-@x;

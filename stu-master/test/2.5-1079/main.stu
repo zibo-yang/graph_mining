@@ -1,9 +1,0 @@
-# * a concatenation dynamic file containing '% include'
-
-A: list.[X]  { touch A ; }
-
-X = {
-	% include W
-}
-
-$x { touch -- "$x" ; }

@@ -1,7 +1,0 @@
-
-# Should not result in the message 'empty filename' since it's not a
-# file.
-
-A:  @"" {
-	touch A
-}

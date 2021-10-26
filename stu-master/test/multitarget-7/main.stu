@@ -1,3 +1,0 @@
-A { touch A }
-
-A.$x B.$y { touch A.$x B.$y }

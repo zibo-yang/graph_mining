@@ -1,3 +1,0 @@
-A: [@x] { touch A }
-@x: -o nonexistingfile;
-

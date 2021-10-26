@@ -1,3 +1,0 @@
-# Logical error:  cannot copy from phony
-
-A = @B; 

@@ -1,4 +1,0 @@
-
-# Phony-only cycle of length one
-
-@all:  @all;

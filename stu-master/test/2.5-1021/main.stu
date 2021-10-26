@@ -1,3 +1,0 @@
-# Not allowed syntactically 
-A:  $[(V)] { touch A ; }
-$x { touch -- "$x" ; }

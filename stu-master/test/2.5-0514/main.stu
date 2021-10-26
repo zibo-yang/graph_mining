@@ -1,2 +1,0 @@
-A:  @list.(A)(B);  # Error:  no rule for @list.AB
-

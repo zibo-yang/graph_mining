@@ -1,4 +1,0 @@
-# Does *not* work; '..' is not simplified away
-A:  jshdjshd/sdsjd/iewsjdh/../../../B { cp B A ; }
-B = {CORRECT}
-

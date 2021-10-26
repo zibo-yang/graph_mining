@@ -1,3 +1,0 @@
-A = list.list.no;
-list.$X.$Y:  ($X.)($Y)  { cp "$X"."$Y" list."$X"."$Y" ; }
-list.no = {correct}

@@ -1,3 +1,0 @@
-# Error: the parameter $name does not appear in any of the targets
-
-A B:  x.$name { ... }

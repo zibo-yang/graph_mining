@@ -1,9 +1,0 @@
-# Circumvent recursive Stu
-
-A: {
-	unset -v STU_STATUS
-	../../stu.test B
-	cp B A
-}
-
->B { echo CORRECT }

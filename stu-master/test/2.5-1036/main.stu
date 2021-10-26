@@ -1,3 +1,0 @@
-# Error:  cannot concatenate a variable 
-A:  (C)($[B]) { touch A ; }
-$x { touch "$x" ; }

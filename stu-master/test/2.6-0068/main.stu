@@ -1,6 +1,0 @@
-list.A/list.B: A {
-	mkdir -p list.A
-	touch list.A/list.B
-}
-
-A { touch A ; }

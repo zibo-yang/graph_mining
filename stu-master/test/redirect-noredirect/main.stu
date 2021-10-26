@@ -1,9 +1,0 @@
-
-# Test that output does NOT get redirected by default.
-
-# The built file 'A' must *not* contain the string 'ERROR'. 
-
-A {
-	echo CORRECT >A
-	echo ERROR
-}

@@ -1,4 +1,0 @@
-# Variable dependency is not allowed within brackets.
-
-A: [C $[B]] { touch A }
-C { touch C }

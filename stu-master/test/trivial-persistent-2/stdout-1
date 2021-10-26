@@ -1,3 +1,0 @@
->B: echo CORRECT
->A: echo "$B"
-Build successful

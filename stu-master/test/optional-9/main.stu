@@ -1,5 +1,0 @@
-# Works, because B and C are never built 
-
-A: -o B { touch A ; }
-B:  C { }
-# No rule for 'C'

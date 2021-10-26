@@ -1,6 +1,0 @@
->A: B C { cat B C }
-
->B C {
-	printf cor
-	echo rect >C
-}

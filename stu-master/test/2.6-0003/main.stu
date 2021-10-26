@@ -1,3 +1,0 @@
-# This is a duplicate target under canonicalization, and is not allowed.  
-A = {111}
-./A = {222}

@@ -1,3 +1,0 @@
-A:  list.(C D) { cat list.C list.D >A ; }
-list.$x { echo "$x$x$x" >list."$x" ; }
-

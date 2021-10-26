@@ -1,2 +1,0 @@
-X { exit 1 }
-A { touch A }

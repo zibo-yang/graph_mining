@@ -1,4 +1,0 @@
-A = list.B;
-list.$V:  @x { echo "$V" >list.B ; }
-@x:  $[V];
-V = {correct}

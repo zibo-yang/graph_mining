@@ -1,7 +1,0 @@
->A: (B $[C]) {
-	cat B
-	echo $C
-}
-
->B { echo CORRECT1 }
->C { echo CORRECT2 }

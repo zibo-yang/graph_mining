@@ -1,3 +1,0 @@
-# Error because parameter does not appear in target
-
-A:  ((( list.$name ))) { touch A }

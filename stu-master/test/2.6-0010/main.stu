@@ -1,4 +1,0 @@
-# 'XXX/..' is not resolved by canonicalization
-A:  jshdjshd/../B { cp B A ; }
-B = {CORRECT}
-

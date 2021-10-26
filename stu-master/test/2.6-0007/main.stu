@@ -1,5 +1,0 @@
-# Duplicate rule
-A: / { touch A ; }
-/ { exit 0 ; }
-/// { exit 0 ; }
-

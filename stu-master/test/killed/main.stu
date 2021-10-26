@@ -1,4 +1,0 @@
-
-# Fail with a signal
-
-A: { kill -9 $$ }

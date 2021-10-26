@@ -1,2 +1,0 @@
->A: $[B] { echo "$B" }
-C B { touch C ; echo correct >B ; }

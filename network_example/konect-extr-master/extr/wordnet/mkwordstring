@@ -1,4 +1,0 @@
-#! /bin/sed -Ef 
-
-/^\s*[^ ]+\s+<http:\/\/.*\/schema\/lexicalForm>\s+"[^"]+"@[^ ]+\s+.\s*$/!d
-s,^\s*([^ ]+)\s+<http:\/\/.*\/schema\/lexicalForm>\s+("[^"]+"@[^ ]+)\s+.\s*$,\1 \2,

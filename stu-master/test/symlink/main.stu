@@ -1,8 +1,0 @@
-
-# Rules:
-# * when a symlink exists, always use the information of the linked-to
-#   file
-# * a symlink to a nonexisting file is treated as a non-existing file 
-
-A:  B { cp B A }
-

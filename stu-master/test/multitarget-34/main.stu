@@ -1,5 +1,0 @@
-# A failing double-target rule
-
-A: C { touch A }
-
-B C { exit 1 }

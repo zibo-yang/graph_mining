@@ -1,3 +1,0 @@
-# Error:  both $name and missing ';'
-
-A: B.$name

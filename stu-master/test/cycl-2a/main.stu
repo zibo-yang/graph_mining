@@ -1,8 +1,0 @@
-
-A: B {
-	cp B A
-}
-
-B: A {
-	cp A B
-}

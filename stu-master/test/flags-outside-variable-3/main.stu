@@ -1,7 +1,0 @@
-# Valid, and equivalent to '$[-t B]'. 
-
-A: -t $[B]    { 
-	echo "$B" >A
-}
-
->B { echo correct }

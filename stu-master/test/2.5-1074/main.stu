@@ -1,3 +1,0 @@
-A:   list.[B] { touch A ; }
-B = { }
-$x { exit 1 ; }

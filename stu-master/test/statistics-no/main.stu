@@ -1,3 +1,0 @@
-# Make sure that without the -z option, no statistics are output. 
-
-A {echo aaa >A}

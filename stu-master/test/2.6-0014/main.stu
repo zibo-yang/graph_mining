@@ -1,2 +1,0 @@
-# The filename is *not* normalized in the error message
-% include nonexistingdirectory/./nonexistingfile

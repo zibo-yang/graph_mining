@@ -1,7 +1,0 @@
-A:  -t -p $[X] { 
-	echo "$X" >A
-}  
-
-X { 
-	echo correct >X
-}

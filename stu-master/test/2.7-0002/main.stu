@@ -1,6 +1,0 @@
-# Backslash before space
-
-A:  list.ab\ c { cp list."ab c" A ; }
-
->list.'ab c' { echo CORRECT ; }
-

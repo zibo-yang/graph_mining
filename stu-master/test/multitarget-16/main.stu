@@ -1,5 +1,0 @@
-# This is an error:  the -o option can only apply to files, to to
-# transitive transient targets.  
-
-A:  -o @x { touch A ; }
-@x B { touch B ; }

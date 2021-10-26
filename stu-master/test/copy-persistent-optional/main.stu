@@ -1,3 +1,0 @@
-# A copy rule that is both persistent and optional
-
-A = -p -o B ;

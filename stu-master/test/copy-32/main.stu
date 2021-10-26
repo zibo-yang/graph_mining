@@ -1,7 +1,0 @@
-# Copied filenames can begin in a dash 
-
-A = '-r';
-'-r' = '-s';
-'-s' = {correct}
-
-

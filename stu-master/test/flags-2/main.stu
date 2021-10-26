@@ -1,5 +1,0 @@
-A: -p B {
-	cp B A
-}
-
->B { echo bbb }

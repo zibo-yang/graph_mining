@@ -1,4 +1,0 @@
-# Error
-A:  <B(C D) { touch A ; }
-$x { touch -- "$x" ; }
-

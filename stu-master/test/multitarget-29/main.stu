@@ -1,3 +1,0 @@
-A: C { cp C A }
-
-C D { touch C }

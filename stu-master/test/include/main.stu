@@ -1,8 +1,0 @@
-
-A: B
-{
-	cp B A
-}
-
-%include b.stu
-

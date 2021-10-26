@@ -1,1 +1,0 @@
-main.stu:2:5: target must not depend on itself: 'A' depends on [A]

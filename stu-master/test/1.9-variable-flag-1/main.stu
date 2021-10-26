@@ -1,7 +1,0 @@
-# The double '-p -p' works. 
-
->A: $[-p -p B] {
-	echo "$B"
-}
-
->B { echo CORRECT }

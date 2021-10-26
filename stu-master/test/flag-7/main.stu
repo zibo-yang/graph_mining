@@ -1,6 +1,0 @@
-# Error:  invalid flag character after '-' (there is a newline after '-')
-
-A:  -
-{
-	touch A
-}

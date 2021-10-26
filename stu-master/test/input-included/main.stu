@@ -1,5 +1,0 @@
-# Can dynamic dependencies contain input redirections?  No. 
-
-A: [B] { tr a-z A-Z }
->B { echo '<C' }
->C { echo correct }

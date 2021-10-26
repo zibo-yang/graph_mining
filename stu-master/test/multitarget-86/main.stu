@@ -1,3 +1,0 @@
-# Error:  output redirection to phony
-
-A >@x { touch A }

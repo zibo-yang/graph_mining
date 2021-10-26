@@ -1,6 +1,0 @@
-
-
-A:  file {
-    echo Catting file twice into A
-    cat file file >A
-}

@@ -1,3 +1,0 @@
-# Error:  cannot have two output redirections
-
->A >B { touch A B ; echo Hello ; }

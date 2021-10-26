@@ -1,6 +1,0 @@
-#
-# An empty command just outputs nothing.  This is valid and creates an
-# empty file.  
-#
-
->A {}

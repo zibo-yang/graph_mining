@@ -1,8 +1,0 @@
-# Single quote that contains an unquoted backslash
-
-A:  list.'aaa\bbb'
-{
-	cp list.aaa\\bbb A
-}
-
-list."aaa\\bbb" = {correct}

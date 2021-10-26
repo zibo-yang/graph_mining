@@ -1,3 +1,0 @@
-A:  list.(X)Y { cp list.XY A ; }
-list.XY = {correct}
-

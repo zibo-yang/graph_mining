@@ -1,3 +1,0 @@
-A { touch A }
-
-A.list A.$x { touch A.list A.$x }

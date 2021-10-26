@@ -1,3 +1,0 @@
-A:   //usr { cp list.usr A ; }
-//$x:  list.$x;
-list.usr = {CORRECT}

@@ -1,6 +1,0 @@
-# 'C' is not built because it is an optional dependency. 
-
-A:  -o [E] { touch A }
->E       { echo C  }
-C        { exit 1  }
-

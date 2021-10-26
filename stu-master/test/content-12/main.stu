@@ -1,7 +1,0 @@
-# Will indentation be preserved?   No.
-
-A = {
-   aaa
-   bbb
-   ccc
-}

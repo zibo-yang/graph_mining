@@ -1,6 +1,0 @@
-
-# An optional dependency cannot be mixed with an input dependency.  This
-# results in a logical error. 
-
-A: -o <B { touch A }
-B { touch B }

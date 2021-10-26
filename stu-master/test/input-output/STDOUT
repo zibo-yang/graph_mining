@@ -1,3 +1,0 @@
->B: echo correct
->A <B: tr a-z A-Z
-Build successful

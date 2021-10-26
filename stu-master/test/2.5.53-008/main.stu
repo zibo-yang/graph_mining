@@ -1,4 +1,0 @@
-# $ stu [ list.FILE ]
-
-list.FILE = { A }
-A = {correct}

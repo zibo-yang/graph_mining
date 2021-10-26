@@ -1,3 +1,0 @@
-# Backslash as last character in file:  error
->A { echo CORRECT ; }
-\

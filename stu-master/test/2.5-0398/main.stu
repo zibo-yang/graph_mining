@@ -1,5 +1,0 @@
-A: [[[B]]] { touch A ; }
-B = { C }
-C = { D }
-D = { E }
-E: X { touch E ; }

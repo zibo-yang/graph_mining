@@ -1,7 +1,0 @@
-# Error because 'C' does not exist, although 'D' exists. 
-
-A: D C { touch A }
-
-B C: D;
-
-D { touch D }

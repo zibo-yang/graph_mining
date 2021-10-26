@@ -1,2 +1,0 @@
-# Concatenation is not possible for copy dependencies. 
-A =  X(Y);

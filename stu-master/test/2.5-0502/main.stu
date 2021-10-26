@@ -1,9 +1,0 @@
-# Two dependencies
->A:  B<C  
-{
-	cat B
-	cat 
-}
-
-B = {bbb}
-C = {ccc}

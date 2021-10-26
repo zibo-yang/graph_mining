@@ -1,4 +1,0 @@
-# 'B' is built. 
-
-A: -o B B { cp B A }
->B { echo bbb }

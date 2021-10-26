@@ -1,5 +1,0 @@
-
-# Double '-p' is syntactically allowed. 
-
-A:  -p -p B { touch A}
-B {touch B}

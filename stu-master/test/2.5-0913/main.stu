@@ -1,3 +1,0 @@
-A:  [(list.)(X)] { cp B A ; }
-list.X = { B }
-B = {correct}

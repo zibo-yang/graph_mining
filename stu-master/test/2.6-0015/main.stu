@@ -1,3 +1,0 @@
-# The '..' in the filename is not canonicalized away in the error
-# message. 
-% include nonexistingdirectory/../nonexistingfile
