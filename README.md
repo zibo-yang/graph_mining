@@ -1,11 +1,13 @@
+# Graph Mining Algorithm
+
 This is my personal project for MPRI 2.29.2 graph mining. My goal is to program the algorithm to find the densest subgraph in specific large graph.
 
 Sorry for the inconvenience of usage of this repository since the refinement of makefile and coding comment are restricted by lack of time. I will try my best to optimize its usage as soon as I could and update it on my github account. Please stay tuned on git and send email to zibo.yang@ip-paris.fr if there is any doubt.
 
-##Dependency
+## Dependency
 Please install python3, pip and matplotlib first
 
-##Usage
+## Usage
 There are two different finding algorithms in this repository. To introduce the content of important files:
 
 basic_funcitons.py: the basic elements of our algorithms which yields enough functionality.
